@@ -1,0 +1,155 @@
+/* =========================================
+   Business Service Management API
+   Custom Swagger Theme
+   ========================================= */
+
+body {
+    background: #202940 !important;
+}
+
+.swagger-ui {
+    color: #ffffff;
+}
+
+/* =========================
+   Top Navigation
+   ========================= */
+
+.swagger-ui .topbar {
+    background: #4B4038 !important;
+    border-bottom: 2px solid #CAAA98;
+}
+
+.swagger-ui .topbar a {
+    color: #ffffff !important;
+}
+
+
+/* =========================
+   API Information
+   ========================= */
+
+.swagger-ui .info .title {
+    color: #ffffff !important;
+}
+
+.swagger-ui .info p,
+.swagger-ui .info li {
+    color: #CAAA98 !important;
+}
+
+
+/* =========================
+   Section Headers
+   ========================= */
+
+.swagger-ui .opblock-tag {
+    color: #ffffff !important;
+    border-bottom: 1px solid #4B4038;
+}
+
+
+/* =========================
+   Endpoint Cards
+   ========================= */
+
+.swagger-ui .opblock {
+    background: #202940 !important;
+    border: 1px solid #4B4038 !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    margin-bottom: 10px;
+}
+
+.swagger-ui .opblock-summary {
+    border: none !important;
+}
+
+.swagger-ui .opblock-summary-path {
+    color: #ffffff !important;
+}
+
+.swagger-ui .opblock-summary-description {
+    color: #9A8678 !important;
+}
+
+
+/* =========================
+   Buttons
+   ========================= */
+
+.swagger-ui .btn.authorize {
+    background: #CAAA98 !important;
+    border-color: #CAAA98 !important;
+    color: #202940 !important;
+}
+
+.swagger-ui .btn.authorize svg {
+    fill: #36ADA3 !important;
+}
+
+.swagger-ui .try-out__btn {
+    border-color: #CAAA98 !important;
+    color: #CAAA98 !important;
+    border-radius: 6px !important;
+}
+
+.swagger-ui .execute-wrapper .btn.execute {
+    background: #CAAA98 !important;
+    border-color: #CAAA98 !important;
+    color: #202940 !important;
+    border-radius: 6px !important;
+    font-weight: 700;
+}
+
+
+/* =========================
+   Inputs
+   ========================= */
+
+.swagger-ui input,
+.swagger-ui textarea,
+.swagger-ui select {
+    background: #202940 !important;
+    color: #ffffff !important;
+    border: 1px solid #9A8678 !important;
+    border-radius: 5px !important;
+}
+
+
+/* =========================
+   Code / Response
+   ========================= */
+
+.swagger-ui .highlight-code,
+.swagger-ui pre.microlight {
+    background: #4B4038 !important;
+    border-radius: 6px;
+}
+
+
+/* =========================
+   Schemas
+   ========================= */
+
+.swagger-ui section.models {
+    display: none !important;
+}
+
+
+
+/* Fix Swagger white sections */
+
+.swagger-ui .information-container {
+    background: #202940 !important;
+}
+
+.swagger-ui .scheme-container {
+    background: #202940 !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.swagger-ui .wrapper {
+    background: #202940 !important;
+}
