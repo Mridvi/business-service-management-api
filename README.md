@@ -128,7 +128,7 @@ GET    /api/v1/services/{service_id}
 
 ```
 
-###Customer Requests
+### Customer Requests
 
 ```text
 POST   /api/v1/auth/login
@@ -138,7 +138,7 @@ GET    /api/v1/requests/
 GET    /api/v1/requests/{request_id}
 ```
 
-###Administrator Services
+### Administrator Services
 ```text
 POST   /api/v1/auth/login
 GET    /api/v1/auth/me
@@ -149,7 +149,7 @@ POST   /api/v1/auth/login
 GET    /api/v1/auth/me
 
 ```
-Administrator Requests
+### Administrator Requests
 ```text
 GET    /api/v1/admin/requests
 PUT    /api/v1/admin/requests/{request_id}/status
@@ -207,19 +207,19 @@ http://localhost:8000
 
 ### API Documentation
 
--Swagger UI
+- Swagger UI
 ```text
 http://localhost:8000/docs
 ```
--Custom Swagger UI
+- Custom Swagger UI
 ```text
 http://localhost:8000/custom-docs
 ```
--ReDoc
+- ReDoc
 ```text
 http://localhost:8000/redoc
 ```
--Run Tests
+- Run Tests
 ```text
 pytest
 ```
@@ -345,9 +345,6 @@ This project demonstrates practical experience with:
 ## Author
 
 Mridvi Sharma
-Computer Science & Engineering
-Python Backend Developer | FastAPI | SQL | AI/ML
-
 
 
 
