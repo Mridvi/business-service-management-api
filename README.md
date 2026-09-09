@@ -1,104 +1,72 @@
 # Business Service Management Platform
 
-A production-style backend platform for managing business services, customer service requests, administrative workflows, and request lifecycles through a secure REST API.
+A production-style business operations backend designed to manage the complete lifecycle of services and customer service requests through a secure, scalable REST API.
 
-The system provides separate customer and administrator workflows, allowing businesses to publish and manage service offerings while customers can submit and track service requests. Administrators can manage the service catalog and control request processing through role-based access.
+The platform provides a centralized system for businesses to publish and manage their service offerings, onboard and authenticate customers, receive service requests, prioritize incoming work, and manage requests through defined operational stages. It supports separate customer and administrator workflows using JWT authentication and role-based access control, ensuring that users can access only the functionality appropriate to their role.
+
+The backend is built with **FastAPI, PostgreSQL, SQLAlchemy, Redis, and Docker**, following a modular architecture that separates API routing, business logic, database models, authentication, authorization, and infrastructure concerns. The application also includes interactive **Swagger/OpenAPI documentation** and automated **Pytest integration tests** for validating core API workflows.
+
+The project demonstrates how a Python backend can be structured to support real-world business operations rather than functioning as a simple CRUD application. It combines authentication, authorization, relational data management, service workflows, request prioritization, administrative controls, API documentation, testing, and containerized development into a single backend platform.
+
+---
 
 ## Features
 
 ### 🔐 Authentication & Authorization
 
-- JWT-based user authentication
+- JWT-based authentication
 - Secure password hashing
-- Login and authenticated user sessions
-- Role-based access control
 - Customer and Administrator roles
+- Role-based access control
 - Protected API endpoints
-- Current-user profile endpoint
-- Admin-only operations
+- Current-user profile
 
-### 🏢 Business Service Catalog
+### 🏢 Service Management
 
-- Create and manage business services
-- Service name and description
-- Service pricing
-- Active/inactive service status
-- Public service listing
-- Retrieve individual service details
-- Update service information
-- Soft-delete/deactivate services
-- Prevent customers from requesting inactive services
-
-### 📋 Service Request Management
-
-Customers can submit requests for available business services.
-
-Each request contains:
-
-- Customer information
-- Selected business service
-- Request description
-- Request priority
-- Request status
-- Creation timestamp
-
-Supported request priorities:
-
-- LOW
-- MEDIUM
-- HIGH
-- URGENT
-
-Supported request lifecycle states:
-
-- PENDING
-- IN_PROGRESS
-- COMPLETED
-- CANCELLED
-
-Customers can:
-
-- Submit service requests
-- View their own requests
-- View individual request details
-- Track request status and priority
-
-Administrators can:
-
-- View service requests
-- Review customer requests
-- Update request status
-- Manage the request lifecycle
-
-### 👥 Role-Based Business Workflows
-
-The API separates functionality based on user roles.
-
-**Customers**
-
-- Access available services
-- Create service requests
-- View their own requests
-- Track request progress
-
-**Administrators**
-
-- Manage the service catalog
-- Create new services
-- Update service information
+- Business service catalog
+- Service pricing and descriptions
 - Activate/deactivate services
-- Review customer requests
-- Update request statuses
+- Public service browsing
+- Admin service management
 
-### 🗄️ Database Management
+### 📋 Service Requests
 
-- PostgreSQL relational database
+- Customer service requests
+- Request priority levels
+- Request status tracking
+- Customer request history
+- Admin request management
+- Request lifecycle management
+
+### 👥 Business Workflows
+
+- Separate customer and admin workflows
+- Role-protected administrative operations
+- Service availability validation
+- Request-to-service relationships
+
+### 🗄️ Database & Infrastructure
+
+- PostgreSQL database
 - SQLAlchemy ORM
-- Structured relational models
-- Foreign-key relationships
-- Customer-service-request relationships
-- Role-based user relationships
-- Database-backed business workflows
+- Redis integration
+- Dockerized application environment
+- Docker Compose setup
+
+### 🧪 Testing
+
+- Pytest test suite
+- Authentication tests
+- Service API tests
+- Service request tests
+- Integration testing
+
+### 📖 API Documentation
+
+- OpenAPI specification
+- Swagger UI
+- ReDoc
+- Customized Swagger interface
 
 ### ⚡ Redis Integration
 
