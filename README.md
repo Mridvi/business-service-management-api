@@ -135,8 +135,8 @@ PUT    /api/v1/admin/requests/{request_id}/status
 
 ```
 
-##Getting Started
-###Prerequisites
+## Getting Started
+### Prerequisites
 
 ###Make sure the following are installed:
 ```text
