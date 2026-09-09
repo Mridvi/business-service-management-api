@@ -138,26 +138,26 @@ PUT    /api/v1/admin/requests/{request_id}/status
 ## Getting Started
 ### Prerequisites
 
-###Make sure the following are installed:
+### Make sure the following are installed:
 ```text
 Python 3.10+
 Docker
 Docker Compose
 Git
 ```
-###Clone the Repository
+### Clone the Repository
 ```text
 git clone https://github.com/Mridvi/business-service-management-api.git
 cd business-service-management-api
 
 ```
 
-###Environment Configuration
+### Environment Configuration
 ```text
 Create a .env file based on .env.example:
 cp .env.example .env
 ```
-###Configure the environment variables:
+### Configure the environment variables:
 ```text
 
 POSTGRES_DB=business_management
@@ -172,18 +172,18 @@ SECRET_KEY=your_secret_key
 
 Do not commit your .env file or real credentials to GitHub.
 
-###Run with Docker
+### Run with Docker
 ```text
 
 docker compose up --build
 ```
 
-###The API will be available at:
+### The API will be available at:
 ```text
 http://localhost:8000
 ```
 
-###API Documentation
+### API Documentation
 
 -Swagger UI
 ```text
@@ -204,7 +204,7 @@ pytest
 The test suite uses an isolated test environment for database and Redis-dependent tests.
 
 
-##Authentication Flow
+## Authentication Flow
 
 The API uses JWT-based authentication.
 ```text
@@ -231,7 +231,7 @@ Customer     Administrator
 ```
 
 
-##Business Workflow
+## Business Workflow
 
 A typical customer interaction follows this flow:
 ```text
@@ -261,8 +261,8 @@ Browse Available Services
 ```
 
 
-##Design Highlights
-###Modular Backend Architecture
+## Design Highlights
+### Modular Backend Architecture
 The application separates:
 -API routing
 -Request and response schemas
@@ -272,7 +272,7 @@ The application separates:
 
 This improves maintainability and makes the backend easier to extend.
 
-###API Versioning
+### API Versioning
 
 Application endpoints are organized under:
 ```text
@@ -280,22 +280,22 @@ Application endpoints are organized under:
 ```
 This provides a structured foundation for future API versions.
 
-###Role-Based Access Control
+### Role-Based Access Control
 Customer and administrator functionality is separated to protect sensitive business operations.
 
-###Service Availability
+### Service Availability
 Inactive services remain stored in the database but cannot be selected for new service requests.
 
-###Request Prioritization
+### Request Prioritization
 Requests can be assigned different priority levels, allowing administrators to distinguish between routine requests and urgent business requirements.
 
-###Request Lifecycle
+### Request Lifecycle
 Service requests move through defined operational states, providing a clear workflow from submission to completion or cancellation.
 
 
 
 
-##Future Improvements
+## Future Improvements
 -Email notifications
 -Request comments and communication history
 -File/document attachments
@@ -304,7 +304,7 @@ Service requests move through defined operational states, providing a clear work
 -Analytics and reporting
 -Cloud deployment
 
-##Learning Outcomes
+## Learning Outcomes
 This project demonstrates practical experience with:
 
 -Python backend development
@@ -320,7 +320,7 @@ This project demonstrates practical experience with:
 -Automated API testing
 
 
-##Author
+## Author
 
 Mridvi Sharma
 Computer Science & Engineering
