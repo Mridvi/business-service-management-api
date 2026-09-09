@@ -38,7 +38,7 @@ The project demonstrates how a Python backend can be structured to support real-
 - Administrator request management
 - Request lifecycle management
 
-  ### 📋 Service Request Management
+### 📋 Service Request Management
 
 Customers can submit requests for available business services.
 
@@ -173,7 +173,6 @@ git clone https://github.com/Mridvi/business-service-management-api.git
 cd business-service-management-api
 
 ```
-
 ### Environment Configuration
 ```text
 Create a .env file based on .env.example:
@@ -301,17 +300,13 @@ Application endpoints are organized under:
 /api/v1
 ```
 This provides a structured foundation for future API versions.
-
-### Role-Based Access Control
+- ### Role-Based Access Control
 Customer and administrator functionality is separated to protect sensitive business operations.
-
-### Service Availability
+- ### Service Availability
 Inactive services remain stored in the database but cannot be selected for new service requests.
-
-### Request Prioritization
+- ### Request Prioritization
 Requests can be assigned different priority levels, allowing administrators to distinguish between routine requests and urgent business requirements.
-
-### Request Lifecycle
+- ### Request Lifecycle
 Service requests move through defined operational states, providing a clear workflow from submission to completion or cancellation.
 
 
