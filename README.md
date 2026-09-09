@@ -1,10 +1,12 @@
 # Business Service Management Platform
 
-A production-style business operations backend for managing business services, customer requests, and administrative workflows through a secure REST API.
+A production-style business operations backend designed to manage the complete lifecycle of services and customer service requests through a secure, scalable REST API.
 
-The platform allows businesses to maintain a service catalog, authenticate users, receive and prioritize customer requests, and manage requests through a defined lifecycle. It supports separate customer and administrator workflows using **JWT authentication** and **role-based access control**.
+The platform provides a centralized system for businesses to publish and manage their service offerings, onboard and authenticate customers, receive service requests, prioritize incoming work, and manage requests through defined operational stages. It supports separate customer and administrator workflows using JWT authentication and role-based access control, ensuring that users can access only the functionality appropriate to their role.
 
-Built with **FastAPI, PostgreSQL, SQLAlchemy, Redis, and Docker**, the project follows a modular backend architecture with interactive **Swagger/OpenAPI documentation** and automated **Pytest testing**.
+The backend is built with **FastAPI, PostgreSQL, SQLAlchemy, Redis, and Docker**, following a modular architecture that separates API routing, business logic, database models, authentication, authorization, and infrastructure concerns. The application also includes interactive **Swagger/OpenAPI documentation** and automated **Pytest integration tests** for validating core API workflows.
+
+The project demonstrates how a Python backend can be structured to support real-world business operations rather than functioning as a simple CRUD application. It combines authentication, authorization, relational data management, service workflows, request prioritization, administrative controls, API documentation, testing, and containerized development into a single backend platform.
 
 ---
 
@@ -35,6 +37,26 @@ Built with **FastAPI, PostgreSQL, SQLAlchemy, Redis, and Docker**, the project f
 - Customer request history
 - Administrator request management
 - Request lifecycle management
+
+  ### 📋 Service Request Management
+
+Customers can submit requests for available business services.
+
+Each request contains:
+
+- Customer information
+- Selected business service
+- Request description
+- Request priority
+- Request status
+- Creation timestamp
+
+Supported request priorities:
+
+- LOW
+- MEDIUM
+- HIGH
+- URGENT
 
 ### 👥 Business Workflows
 
@@ -264,11 +286,11 @@ Browse Available Services
 ## Design Highlights
 ### Modular Backend Architecture
 The application separates:
--API routing
--Request and response schemas
--Database models
--Authentication
--Authorization
+- API routing
+- Request and response schemas
+- Database models
+- Authentication
+- Authorization
 
 This improves maintainability and makes the backend easier to extend.
 
@@ -296,28 +318,28 @@ Service requests move through defined operational states, providing a clear work
 
 
 ## Future Improvements
--Email notifications
--Request comments and communication history
--File/document attachments
--Service categories
--Customer dashboards
--Analytics and reporting
--Cloud deployment
+- Email notifications
+- Request comments and communication history
+- File/document attachments
+- Service categories
+- Customer dashboards
+- Analytics and reporting
+- Cloud deployment
 
 ## Learning Outcomes
 This project demonstrates practical experience with:
 
--Python backend development
--FastAPI REST API development
--RESTful API design
--PostgreSQL database integration
--SQLAlchemy ORM
--JWT authentication
--Role-based authorization
--Business workflow implementation
--Redis integration
--Docker and Docker Compose
--Automated API testing
+- Python backend development
+- FastAPI REST API development
+- RESTful API design
+- PostgreSQL database integration
+- SQLAlchemy ORM
+- JWT authentication
+- Role-based authorization
+- Business workflow implementation
+- Redis integration
+- Docker and Docker Compose
+- Automated API testing
 
 
 ## Author
