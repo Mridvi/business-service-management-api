@@ -1,12 +1,10 @@
 # Business Service Management Platform
 
-A production-style business operations backend designed to manage the complete lifecycle of services and customer service requests through a secure, scalable REST API.
+A production-style business operations backend for managing business services, customer requests, and administrative workflows through a secure REST API.
 
-The platform provides a centralized system for businesses to publish and manage their service offerings, onboard and authenticate customers, receive service requests, prioritize incoming work, and manage requests through defined operational stages. It supports separate customer and administrator workflows using JWT authentication and role-based access control, ensuring that users can access only the functionality appropriate to their role.
+The platform allows businesses to maintain a service catalog, authenticate users, receive and prioritize customer requests, and manage requests through a defined lifecycle. It supports separate customer and administrator workflows using **JWT authentication** and **role-based access control**.
 
-The backend is built with **FastAPI, PostgreSQL, SQLAlchemy, Redis, and Docker**, following a modular architecture that separates API routing, business logic, database models, authentication, authorization, and infrastructure concerns. The application also includes interactive **Swagger/OpenAPI documentation** and automated **Pytest integration tests** for validating core API workflows.
-
-The project demonstrates how a Python backend can be structured to support real-world business operations rather than functioning as a simple CRUD application. It combines authentication, authorization, relational data management, service workflows, request prioritization, administrative controls, API documentation, testing, and containerized development into a single backend platform.
+Built with **FastAPI, PostgreSQL, SQLAlchemy, Redis, and Docker**, the project follows a modular backend architecture with interactive **Swagger/OpenAPI documentation** and automated **Pytest testing**.
 
 ---
 
@@ -27,7 +25,7 @@ The project demonstrates how a Python backend can be structured to support real-
 - Service pricing and descriptions
 - Activate/deactivate services
 - Public service browsing
-- Admin service management
+- Administrator service management
 
 ### 📋 Service Requests
 
@@ -35,12 +33,12 @@ The project demonstrates how a Python backend can be structured to support real-
 - Request priority levels
 - Request status tracking
 - Customer request history
-- Admin request management
+- Administrator request management
 - Request lifecycle management
 
 ### 👥 Business Workflows
 
-- Separate customer and admin workflows
+- Separate customer and administrator workflows
 - Role-protected administrative operations
 - Service availability validation
 - Request-to-service relationships
@@ -55,62 +53,18 @@ The project demonstrates how a Python backend can be structured to support real-
 
 ### 🧪 Testing
 
-- Pytest test suite
-- Authentication tests
+- Automated testing with Pytest
+- Authentication and authorization tests
 - Service API tests
-- Service request tests
+- Service request workflow tests
 - Integration testing
 
 ### 📖 API Documentation
 
 - OpenAPI specification
-- Swagger UI
-- ReDoc
+- Interactive Swagger UI
+- ReDoc documentation
 - Customized Swagger interface
-
-### ⚡ Redis Integration
-
-Redis is integrated into the backend infrastructure for application-level support such as authentication/session-related functionality and fast-access data operations.
-
-### 🧪 Automated Testing
-
-The project includes automated tests using Pytest.
-
-Test coverage includes:
-
-- Application startup
-- Authentication workflows
-- Protected endpoints
-- Service operations
-- Service request workflows
-- Role-based access behavior
-- API integration scenarios
-
-The test suite runs against an isolated testing environment using SQLite and a Redis test setup.
-
-### 📖 Interactive API Documentation
-
-The API provides automatically generated OpenAPI documentation through Swagger UI.
-
-Available documentation:
-
-- `/docs` — Swagger UI
-- `/redoc` — ReDoc
-- `/custom-docs` — Customized Swagger UI
-
-The customized documentation provides a cleaner interface for exploring and testing the API endpoints.
-
-### 🐳 Dockerized Development
-
-The application is containerized using Docker and Docker Compose.
-
-The development environment includes:
-
-- FastAPI application
-- PostgreSQL database
-- Redis
-
-This allows the complete backend environment to be started consistently without manually configuring each service.
 
 ---
 
@@ -124,41 +78,254 @@ This allows the complete backend environment to be started consistently without 
 | Database | PostgreSQL |
 | ORM | SQLAlchemy |
 | Authentication | JWT |
-| Password Security | Password Hashing |
-| Caching / Infrastructure | Redis |
-| API Documentation | Swagger / OpenAPI / ReDoc |
+| Infrastructure | Redis |
+| Documentation | Swagger / OpenAPI / ReDoc |
 | Testing | Pytest |
 | Containerization | Docker / Docker Compose |
 | Version Control | Git / GitHub |
 
 ---
 
-## System Architecture
+## API Structure
+
+All endpoints are versioned under `/api/v1`.
+
+### Authentication
 
 ```text
-                    ┌─────────────────────┐
-                    │      Client         │
-                    │  Swagger / API      │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │      FastAPI        │
-                    │     REST API        │
-                    └──────────┬──────────┘
-                               │
-             ┌─────────────────┼─────────────────┐
-             │                 │                 │
-             ▼                 ▼                 ▼
-       Authentication     Business Logic     Authorization
-          & JWT          Service Management    & RBAC
-             │                 │                 │
-             └─────────────────┼─────────────────┘
-                               │
-                    ┌──────────┴──────────┐
-                    │                     │
-                    ▼                     ▼
-             ┌──────────────┐      ┌──────────────┐
-             │ PostgreSQL   │      │    Redis     │
-             │  Database    │      │ Infrastructure│
-             └──────────────┘      └──────────────┘
+POST   /api/v1/auth/login
+GET    /api/v1/auth/me
+```
+
+### Services
+```text
+POST   /api/v1/auth/login
+GET    /api/v1/auth/me
+GET    /api/v1/services/
+GET    /api/v1/services/{service_id}
+
+```
+
+###Customer Requests
+
+```text
+POST   /api/v1/auth/login
+GET    /api/v1/auth/me
+POST   /api/v1/requests/
+GET    /api/v1/requests/
+GET    /api/v1/requests/{request_id}
+```
+
+###Administrator Services
+```text
+POST   /api/v1/auth/login
+GET    /api/v1/auth/me
+POST   /api/v1/admin/services
+PUT    /api/v1/admin/services/{service_id}
+DELETE /api/v1/admin/services/{service_id}
+POST   /api/v1/auth/login
+GET    /api/v1/auth/me
+
+```
+Administrator Requests
+```text
+GET    /api/v1/admin/requests
+PUT    /api/v1/admin/requests/{request_id}/status
+
+
+```
+
+##Getting Started
+###Prerequisites
+
+###Make sure the following are installed:
+```text
+Python 3.10+
+Docker
+Docker Compose
+Git
+```
+###Clone the Repository
+```text
+git clone https://github.com/Mridvi/business-service-management-api.git
+cd business-service-management-api
+
+```
+
+###Environment Configuration
+```text
+Create a .env file based on .env.example:
+cp .env.example .env
+```
+###Configure the environment variables:
+```text
+
+POSTGRES_DB=business_management
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=your_password
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+REDIS_HOST=redis
+REDIS_PORT=6379
+SECRET_KEY=your_secret_key
+```
+
+Do not commit your .env file or real credentials to GitHub.
+
+###Run with Docker
+```text
+
+docker compose up --build
+```
+
+###The API will be available at:
+```text
+http://localhost:8000
+```
+
+###API Documentation
+
+-Swagger UI
+```text
+http://localhost:8000/docs
+```
+-Custom Swagger UI
+```text
+http://localhost:8000/custom-docs
+```
+-ReDoc
+```text
+http://localhost:8000/redoc
+```
+-Run Tests
+```text
+pytest
+```
+The test suite uses an isolated test environment for database and Redis-dependent tests.
+
+
+##Authentication Flow
+
+The API uses JWT-based authentication.
+```text
+User
+ │
+ │ Login Credentials
+ ▼
+Authentication API
+ │
+ │ Validate Credentials
+ ▼
+JWT Access Token
+ │
+ │ Authorization: Bearer <token>
+ ▼
+Protected API Endpoint
+ │
+ ▼
+Role Verification
+ │
+ ├───────────────┐
+ ▼               ▼
+Customer     Administrator
+```
+
+
+##Business Workflow
+
+A typical customer interaction follows this flow:
+```text
+Browse Available Services
+          │
+          ▼
+     Select Service
+          │
+          ▼
+  Submit Service Request
+          │
+          ▼
+    Set Request Priority
+          │
+          ▼
+        PENDING
+          │
+          ▼
+     IN_PROGRESS
+          │
+       ┌──┴──┐
+       │     │
+       ▼     ▼
+  COMPLETED CANCELLED
+
+  
+```
+
+
+##Design Highlights
+###Modular Backend Architecture
+The application separates:
+-API routing
+-Request and response schemas
+-Database models
+-Authentication
+-Authorization
+
+This improves maintainability and makes the backend easier to extend.
+
+###API Versioning
+
+Application endpoints are organized under:
+```text
+/api/v1
+```
+This provides a structured foundation for future API versions.
+
+###Role-Based Access Control
+Customer and administrator functionality is separated to protect sensitive business operations.
+
+###Service Availability
+Inactive services remain stored in the database but cannot be selected for new service requests.
+
+###Request Prioritization
+Requests can be assigned different priority levels, allowing administrators to distinguish between routine requests and urgent business requirements.
+
+###Request Lifecycle
+Service requests move through defined operational states, providing a clear workflow from submission to completion or cancellation.
+
+
+
+
+##Future Improvements
+-Email notifications
+-Request comments and communication history
+-File/document attachments
+-Service categories
+-Customer dashboards
+-Analytics and reporting
+-Cloud deployment
+
+##Learning Outcomes
+This project demonstrates practical experience with:
+
+-Python backend development
+-FastAPI REST API development
+-RESTful API design
+-PostgreSQL database integration
+-SQLAlchemy ORM
+-JWT authentication
+-Role-based authorization
+-Business workflow implementation
+-Redis integration
+-Docker and Docker Compose
+-Automated API testing
+
+
+##Author
+
+Mridvi Sharma
+Computer Science & Engineering
+Python Backend Developer | FastAPI | SQL | AI/ML
+
+
+
+
